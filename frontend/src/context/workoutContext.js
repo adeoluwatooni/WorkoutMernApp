@@ -2,7 +2,7 @@
 import { createContext, useReducer } from "react";
 import { workoutsReducer } from "../reducers/workoutsReducer";
 
-const WorkoutsContext = createContext()
+export const WorkoutsContext = createContext()
 
 const WorkoutsContextProvider = ({ children }) => {
 
@@ -15,4 +15,4 @@ const WorkoutsContextProvider = ({ children }) => {
   )
 }
 
-export default WorkoutsContextProvider
+export default WorkoutsContextProvider  
