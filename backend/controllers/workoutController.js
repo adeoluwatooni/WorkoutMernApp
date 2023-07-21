@@ -6,7 +6,22 @@ const mongoose = require('mongoose')
 // Create a workout <------------------------------------------------------>
 const createWorkout = async (request, response) => {
   const { title, reps, load } = request.body
+  const emptyFields = []
 
+  if (!title) {
+    emptyFields.push('title')
+  }
+  if (!load) {
+    emptyFields.push('load')
+  }
+  if (!reps) {
+    emptyFields.push('reps')
+  }
+  if (emptyFields.length > 0) {
+    return response.status(400).json({error: 'please fill in all the input fields', emptyFields})
+  }
+
+  //add a document to your database
   try {
     const workout = await workoutModel.create({ title, reps, load })
     response.status(200).json(workout)
