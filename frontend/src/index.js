@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import WorkoutsContextProvider from './context/workoutContext';
+import {WorkoutsContextProvider} from './context/workoutContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

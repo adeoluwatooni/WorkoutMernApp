@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 
 const WorkoutForm = () => {
-
+  const { dispatch } = useWorkoutsContext()
   const [title, setTitle] = useState('')
   const [reps, setReps] = useState(0)
   const [load, setLoad] = useState(0)
@@ -29,6 +30,7 @@ const WorkoutForm = () => {
       setLoad('')
       setReps('')
       console.log('new workout added:', data)
+      dispatch({type:'CREATE_WORKOUT', payload:data })
     } else {
       setError(data.error)
     }

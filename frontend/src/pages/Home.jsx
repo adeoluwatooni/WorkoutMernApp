@@ -2,14 +2,13 @@
 // import { useState, useEffect } from 'react';
 
 import { useEffect } from 'react';
-import { useWorkoutsContext } from '../hooks/useWorkoutsreducer';
+import { useWorkoutsContext } from '../hooks/useWorkoutsContext'
 
 import WorkoutDetails from './workoutDetails';
 import WorkoutForm from '../components/workoutform';
 
 const Home = () => {
 /* 
-
 // a more straight forward way to update the ui when you ad or delete a workout is to add workouts to the dependency array to force a rerender after you alter the state of the workouts.
 
   const [workouts, setWorkouts] = useState(null)
@@ -36,7 +35,7 @@ const Home = () => {
   
   useEffect(() => {
     const fetchWorkouts = async () => {
-      const response = await fetch('/api/workouts')
+      const response = await fetch('http://localhost:4000/api/workouts/')
       const json = await response.json()
 
       if (response.ok) {
