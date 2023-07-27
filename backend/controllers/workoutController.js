@@ -1,4 +1,4 @@
-const { response } = require('express')
+// const { response } = require('express')
 const workoutModel = require('../models/workoutModel')
 const mongoose = require('mongoose')
 
