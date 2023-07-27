@@ -6,6 +6,7 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 
 const workoutRoutes = require('./routes/workouts')
+const userRoutes = require('./routes/user')
 
 // Express App
 const app = express()
@@ -23,6 +24,7 @@ app.use(express.json())
 
 //react to the request object
 app.use('/api/workouts', workoutRoutes)
+app.use('/api/user', userRoutes)
 
 // Connecting to Mongodb Atlas database
 mongoose.connect(process.env.MONGO_URI)
