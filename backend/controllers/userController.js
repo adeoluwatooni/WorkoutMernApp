@@ -3,11 +3,11 @@ const jwt = require('jsonwebtoken')
 // import the user model
 const userModel = require("../models/userModel")
 
-
-const getUsers = async (req, res) => {
-  const users = await userModel.find({}).sort({ createdAt: -1 })
-  res.status(200).json(users)
-}
+// testing backend
+// const getUsers = async (req, res) => {
+//   const users = await userModel.find({}).sort({ createdAt: -1 })
+//   res.status(200).json(users)
+// }
 
 const createToken = (_id) => {
   return jwt.sign({_id}, process.env.SECRET, {expiresIn: '3d'})
