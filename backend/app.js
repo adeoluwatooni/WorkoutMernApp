@@ -4,6 +4,8 @@ require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
+const helmet = require('helmet')
+const xss = require('xss-clean')
 
 const workoutRoutes = require('./routes/workouts')
 const userRoutes = require('./routes/user')
@@ -12,7 +14,18 @@ const userRoutes = require('./routes/user')
 const app = express()
 
 // Use CORS middleware to enable cross-origin requests
-app.use(cors());
+const corsOptions = {
+  origin: '*',
+  methods: 'GET, HEAD, POST, PUT, PATCH, DELETE',
+  optionsSuccessStatus: 200,
+  credentials: true
+}
+
+app.use(cors(corsOptions));
+
+app.set('trust-proxy', 100)
+app.use(helmet)
+app.use(xss)
 
 // middleware
 app.use(express.json())

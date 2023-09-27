@@ -2,12 +2,12 @@
 const express = require('express')
 
 //import the require auth middleware we created
-const requireAuth = require('../middleware/requireAuth,js')
+const requireAuth = require('../middleware/requireAuth.js')
 
 const {createWorkout, getAllWorkouts, getSingleWorkout, deleteSingleWorkout, updateWorkout } = require('../controllers/workoutController')
 
 
-const router = express.Router()
+const router = express.Router();
 
 // this makes sure the users are authenticated by the requireauth middleware before they can fire any of the http requests below
 router.use(requireAuth)
